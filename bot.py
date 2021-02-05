@@ -206,7 +206,7 @@ async def load_lists():
 async def on_ready():
     global reddit
     global sub
-    reddit = praw.Reddit(cfg['praw']['cred'])
+    reddit = praw.Reddit(cfg['praw']['cred'], check_for_async=False)
     sub = reddit.subreddit(cfg['praw']['sub'])
 
     cprint(f'    Discord connection established, logged in as {client.user}', 'green')
